@@ -15,9 +15,18 @@ wss.broadcast = function broadcast(data) {
 
 wss.on('connection', function (socket) {
     console.log(`New Connection.`);
-    socket.send(`Connected`);
+    socket.send(JSON.stringify({from: 'server', data: 'connected'}));
 
     socket.on('message', function(data) {
         console.log(data);
+
+        const msg = JSON.parse(data);
+        if (msg.from === 'device') {
+            wss.broadcast(JSON.stringify({ from: 'server', data: msg.data }));
+        }
+    })
+
+    socket.on('close', function(){
+        console.log(`closed`);
     })
 })

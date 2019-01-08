@@ -1,6 +1,7 @@
-const SerialPort = require("serialport");  //引入模块
-const serialPortName = 'COM1'; //定义串口名
+const SerialPort = require("serialport");  
+const WebSocket = require("ws");
 
+const serialPortName = 'COM5'; //定义串口名
 var serialPort = new SerialPort(
     serialPortName, {
         baudRate: 9600,  //波特率
@@ -11,14 +12,23 @@ var serialPort = new SerialPort(
         autoOpen: false
     }, false);
 
+const ws = new WebSocket('ws://127.0.0.1:8080')
+
+ws.on("open", function() {
+    console.log('open');
+})
+
 serialPort.open(function (error) {
     if (error) {
         console.log(`Serial open error: ${error}`);
+        ws.close();
     } else {
         console.log(`Serial Listening on ${serialPortName}`);
+
         serialPort.on('data', function (data) {
             console.log(`Serial data: ${data}`);
-            wss.broadcast(data);
+            // wss.broadcast(data);
+            ws.send(JSON.stringify({from: 'device', data: data}));
         })
     }
 });
