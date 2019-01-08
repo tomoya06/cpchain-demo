@@ -9,7 +9,7 @@
         console.log(evt)
         var msg = JSON.parse(evt.data)
         console.log(msg);
-        if (msg.from === 'server') {
+        if (msg.from === 'ctrl') {
             // Use Reveal.slide(number) to switch to a particular slide. Index starts from 0. 
             switch (msg.data) {
                 case 's1': Reveal.slide(1); break;
