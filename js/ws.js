@@ -10,13 +10,15 @@
         var msg = JSON.parse(evt.data)
         console.log(msg);
         if (msg.from === 'ctrl') {
-            // Use Reveal.slide(number) to switch to a particular slide. Index starts from 0. 
+            // TODO: Use Reveal.slide(number) to switch to a particular slide. Index starts from 0. 
+            // TODO: msg.data is the control signal. Must be the same to the message sent directly from your iot device 
+            // (or, if being edited via editSerialData() function in serial.js in the server project, the edited one. )
             switch (msg.data) {
-                case 's1': Reveal.slide(1); break;
-                case 's2': Reveal.slide(2); break;
-                case 's3': Reveal.slide(3); break;
-                case 's4': Reveal.slide(4); break;
-                case 's0': Reveal.slide(0); break;
+                case '1': Reveal.slide(1); break;
+                case '2': Reveal.slide(2); break;
+                case '3': Reveal.slide(3); break;
+                case '4': Reveal.slide(4); break;
+                case '0': Reveal.slide(0); break;
                 default: ;
             }
         }
