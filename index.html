@@ -24,17 +24,15 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section 
-					data-transition="slide"
-					data-background-image="./src/01.jpg"
-				>
-					<p><a href="#/1">go to 1</a></p>
-					<p onclick="goto(2)">go to 2</p>
+				<!-- edit each slide within a single section -->
+				<section data-transition="slide" data-background-image="./src/01.jpg">
+					<h4>雄安</h4>
+					<p>开始按钮</p>
 				</section>
-				<section data-background-image="./src/02-01.jpg" data-transition="slide-in fade-out">21</section>
-				<section data-background-image="./src/02-02.jpg" data-background-transition="none">22</section>
-				<section data-background-image="./src/02-03.jpg" data-background-transition="none">23</section>
-				<section data-background-image="./src/02-04.jpg" data-background-transition="none">24</section>
+				<section data-background-color="#ffff37" data-transition="slide-in fade-out">State 1</section>
+				<section data-background-color="#b7ff4a" data-background-transition="none">State 2</section>
+				<section data-background-color="#ffdc35" data-background-transition="none">State 3</section>
+				<section data-background-color="#2894ff" data-transition="fade-in slide-out" data-background-transition="none">State 4</section>
 			</div>
 		</div>
 
@@ -59,13 +57,7 @@
 				]
 			});
 		</script>
-		<script>
-			function goto(page) {
-				if (typeof page !== "number") {
-					return false;
-				}
-				Reveal.slide(page);
-			}
-		</script>
+
+		<script src="./js/ws.js"></script>
 	</body>
 </html>
