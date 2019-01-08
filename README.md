@@ -10,4 +10,4 @@
 ## HOW TO EDIT
 
 * The README in /dev branch teaches you how to use reveal.js, the main plugin used to edit the slides. Or visit its [HOMEPAGE](https://revealjs.com/) for further info. 
-* In both /dev and /server branch, search the keyword `TODO:` within the project workspace for all the codes you should pay attention to, and, edit if necessary, before use it in practice. 
+* In both /dev and /server branch, search the keyword `TODO:` within the project workspace for all the codes you should pay attention to, and, edit if necessary, before use it in practice. (In /dev, ignore but TODOs in **index.html** and **ws.js**)
