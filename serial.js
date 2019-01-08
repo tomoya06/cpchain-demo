@@ -1,7 +1,7 @@
 const SerialPort = require("serialport");  
 const WebSocket = require("ws");
 
-const serialPortName = 'COM5'; //定义串口名
+const serialPortName = 'COM1'; //定义串口名
 var serialPort = new SerialPort(
     serialPortName, {
         baudRate: 9600,  //波特率

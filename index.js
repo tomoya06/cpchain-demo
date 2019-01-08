@@ -22,7 +22,7 @@ wss.on('connection', function (socket) {
 
         const msg = JSON.parse(data);
         if (msg.from === 'device') {
-            wss.broadcast(JSON.stringify({ from: 'server', data: msg.data }));
+            wss.broadcast(JSON.stringify({ from: 'ctrl', data: msg.data }));
         }
     })
 
